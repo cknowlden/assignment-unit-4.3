@@ -21,7 +21,7 @@ function listItems(){
 }
 
 function empty(){
-    basket = [];
+    basket.length = 0;
 }
 
 function isFull(){
