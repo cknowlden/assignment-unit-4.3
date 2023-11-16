@@ -2,35 +2,27 @@ console.log('***** Cart Functions *****');
 // Make sure to test all functions here in the JS file!
 // We want to see how you are testing your code!!!
 let basket = [];
-function addItem(item) {
-    basket.push(item);
-    return true;
-}
-addItem('marbles');
-addItem(`potato`);
-addItem('peanut');
-addItem('pear');
-addItem('cherry');
+let maxItems = 5;
 
-//console.log(addItem('apple'));
-console.log(`The basket contains: ${basket}`);
+function addItem(item) {
+    if (isFull() === false){
+        basket.push(item);
+        return true;
+    }
+    else {
+    return false;
+    }
+}
 
 function listItems(){
     for (let item of basket){
-    console.log(item)
-    };
-};
-
-listItems();
-
-function empty(){
-    basket.length = 0
+    console.log(item);
+    }
 }
 
-empty();
-console.log(`The basket now has ${basket.length} items`);
-
-let maxItems = 5;
+function empty(){
+    basket = [];
+}
 
 function isFull(){
     if (basket.length < maxItems){
@@ -38,11 +30,20 @@ function isFull(){
     } else{
     return true;
     }
-};
+}
 
+addItem('marbles');
+addItem('potato');
+addItem('peanut');
+addItem('pear');
+addItem('cherry');
+console.log(`I added an item ${addItem('pajamas')}`);
+//console.log(addItem('apple'));
+console.log(`The basket contains: ${basket}`);
+listItems();
+empty();
+console.log(`The basket now has ${basket.length} items`);
 console.log(`The basket is full? ${isFull()}`);
-
-
 
 // DO NOT MODIFY
 // Used for automated testing
